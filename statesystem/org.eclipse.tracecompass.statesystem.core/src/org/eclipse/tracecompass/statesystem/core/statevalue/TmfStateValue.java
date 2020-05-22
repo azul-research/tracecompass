@@ -16,7 +16,7 @@ package org.eclipse.tracecompass.statesystem.core.statevalue;
 
 import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.tracecompass.internal.provisional.statesystem.core.statevalue.CustomStateValue;
-import org.eclipse.tracecompass.internal.statesystem.core.Activator;
+//import org.eclipse.tracecompass.internal.statesystem.core.Activator;
 import org.eclipse.tracecompass.statesystem.core.exceptions.StateValueTypeException;
 
 /**
@@ -148,13 +148,17 @@ public abstract class TmfStateValue implements ITmfStateValue {
          * Make sure the String does not contain "weird" things, like ISO
          * control characters.
          */
+        String value = "";
         for (char c : strValue.toCharArray()) {
-            if (Character.isISOControl(c)) {
-                Activator.getDefault().logError("Trying to use invalid string: " + strValue); //$NON-NLS-1$
-                throw new IllegalArgumentException();
+//            if (Character.isISOControl(c)) {
+//                Activator.getDefault().logError("Trying to use invalid string: " + strValue); //$NON-NLS-1$
+//                throw new IllegalArgumentException();
+//            }
+            if (!Character.isISOControl(c)) {
+                value += c;
             }
         }
-        StringStateValue newValue = new StringStateValue(strValue);
+        StringStateValue newValue = new StringStateValue(value);
         STRING_CACHE[offset] = newValue;
         return newValue;
     }
