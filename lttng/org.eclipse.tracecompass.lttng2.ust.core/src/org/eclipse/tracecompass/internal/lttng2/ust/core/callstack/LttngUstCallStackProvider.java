@@ -136,8 +136,8 @@ public class LttngUstCallStackProvider extends CallStackStateProvider {
         if (!funcEntryEvents.contains(eventName)) {
             return null;
         }
-        Long address = (Long) event.getContent().getField(fLayout.fieldAddr()).getValue();
-        return TmfStateValue.newValueLong(address);
+        String method_name = (String) event.getContent().getField("method_name").getValue(); //$NON-NLS-1$
+        return TmfStateValue.newValueString(method_name);
     }
 
     @Override

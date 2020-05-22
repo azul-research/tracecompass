@@ -83,22 +83,22 @@ public class LttngUst20EventLayout implements ILttngUstEventLayout {
 
     @Override
     public String eventCygProfileFuncEntry() {
-        return "lttng_ust_cyg_profile:func_entry";
+        return "hotspot:method__entry";
     }
 
     @Override
     public String eventCygProfileFastFuncEntry() {
-        return "lttng_ust_cyg_profile_fast:func_entry";
+        return "hotspot:method__entry";
     }
 
     @Override
     public String eventCygProfileFuncExit() {
-        return "lttng_ust_cyg_profile:func_exit";
+        return "hotspot:method__return";
     }
 
     @Override
     public String eventCygProfileFastFuncExit() {
-        return "lttng_ust_cyg_profile_fast:func_exit";
+        return "hotspot:method__return";
     }
 
     // ------------------------------------------------------------------------
